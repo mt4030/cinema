@@ -7,16 +7,12 @@ const apikey='6mNVDieWCHeGbQzE1O0RWYJxgIrfkyCkzxCyb9m7'
 export const moviecontext=createContext()
 export default function Movie(){
 
-///global query
 
 const [query, setQuery] = useState('');
 const [data,setdata]=useState([])
 const [favorites, setFavorites] = useState([]);
 const [showFavorites, setShowFavorites] = useState(false)
-
-
-
-
+const [noResults, setNoResults] = useState(false);
   const toggleFavorite = (item) => {
     setFavorites((prev) => {
       const exists = prev.find(fav => fav.id === item.id);
@@ -26,50 +22,56 @@ const [showFavorites, setShowFavorites] = useState(false)
   };
 
 
+
+
+
 useEffect(()=>{
     
-        if (!query) return;
+        if (!query) {
+           setdata([]);
+    setNoResults(false);
+  return;
+        }
+          
+        
 const fetchMovie= async () =>{
     try{
     const response=await fetch(  `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${apikey}&search_value=${encodeURIComponent(query)}&search_type=3`
 )
     const json= await response.json()
       console.log('Full API response:', json);
-   const newMovie = json.results[0];
-  if(newMovie){
-    setdata((pre)=>{
-        return [newMovie,...pre].slice(0, 10)
-    })
- 
-  }
+       if (!json.results || json.results.length === 0) {
+        setdata([]);
+        setNoResults(true); 
+        return;
+      }
+
+  setNoResults(false)
+  setdata(json.results.slice(0, 10))
 }catch(e){
 console.log(e);
+setNoResults(true)
+        setdata([])
     }
- 
 }
  fetchMovie()   
-   
 },[query])
   
 
-  
+
+
 
 
 
     return(
         <>
-        <moviecontext.Provider value={{ data, setdata, query, setQuery,favorites, setFavorites ,toggleFavorite,showFavorites, setShowFavorites }}>
+        <moviecontext.Provider value={{ data, setdata, query, setQuery,favorites, setFavorites ,toggleFavorite,showFavorites, setShowFavorites, noResults, setNoResults}}>
         <div className='container mx-auto'>
              <Hero />
              <div className=' justify-items-center'>
-
-   
-  {showFavorites ? <FavoriteList /> : <Movielist data={data} setShowFavorites={setShowFavorites} />}
-
-          
+           {showFavorites ? <FavoriteList /> : <Movielist data={data} setShowFavorites={setShowFavorites} />}
          </div>
          </div>
-      
          <AFooter/> 
          </moviecontext.Provider>
         </>

@@ -10,13 +10,13 @@ export default function Movielist({data}){
 <div className="flex gap-2 justify-center my-4">
     <button
           onClick={() => setShowFavorites(false)}
-          className="px-4 py-2 rounded bg-blue-500 text-white"
+          className="px-4 py-2 rounded bg-sky-500 text-white hover:bg-sky-700 transition duration-400 ease-in-out "
         >
           All
         </button>
         <button
           onClick={() => setShowFavorites(true)}
-          className="px-4 py-2 rounded bg-yellow-500 text-white"
+          className="px-4 py-2 rounded bg-yellow-500 text-white hover:bg-yellow-700 transition duration-400 ease-in-out "
         >
           Favorites
         </button>
