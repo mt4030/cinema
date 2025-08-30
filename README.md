@@ -1,12 +1,65 @@
-# React + Vite
+# 🎬 Movie Explorer (React + Watchmode API)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive movie search application built with **React**, **TailwindCSS**, and **Flowbite-React**.  
+Search for movies, explore details, and manage your favorite list — all in a clean, modern UI.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- 🔎 **Search movies/TV shows** using the [Watchmode API](https://api.watchmode.com/)  
+- ❤️ **Add / Remove favorites** with persistent state  
+- 🌓 **Dark mode ready** UI with Flowbite + Tailwind  
+- 🎨 Interactive movie cards with hover effects  
+- 📱 Fully responsive layout  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+- **React 18**  
+- **TailwindCSS**  
+- **Flowbite-React** (UI Components)  
+- **Context API** (global state for movies & favorites)  
+- **Watchmode API** (autocomplete search)  
+
+---
+
+## 📂 Project Structure
+src/
+│── components/
+│ ├── card.jsx # Single movie card
+│ ├── FavoriteList.jsx # List of favorite movies
+│ ├── Movielist.jsx # Grid of search results
+│ ├── hero.jsx # Hero banner with search
+│ ├── inputsearch.jsx # Search bar
+│ ├── navbar.jsx # Navigation bar
+│ ├── footer.jsx # Footer
+│── movie-api.jsx # Context provider & API logic
+│── App.jsx # Main app entry
+│── index.css # Global styles
+│── seeds.js # Example seed movies
+
+---
+
+## ⚡ Setup & Usage
+To run this project locally:
+
+```bash
+# Clone repository
+git clone https://github.com/mt4030/movie-app.git
+
+# Navigate to project folder
+cd movie-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+🔑 Environment Variables
+
+📝 License
+
+This project is open-source and available under the MIT License
+.
+
+ Built with  by Mohsen
