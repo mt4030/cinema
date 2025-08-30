@@ -43,7 +43,7 @@ src/
 ## ⚡ Setup & Usage
 To run this project locally:
 
-```bash
+bash
 # Clone repository
 git clone https://github.com/mt4030/movie-app.git
 
@@ -55,11 +55,13 @@ npm install
 
 # Start development server
 npm run dev
-🔑 Environment Variables
 
 📝 License
 
 This project is open-source and available under the MIT License
-.
 
- Built with  by Mohsen
+
+ Built with by Mohsen
+
+
+
